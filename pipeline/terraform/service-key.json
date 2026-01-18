@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "dtc-de-course-484508",
+  "private_key_id": "538b88e51915f70f401c6f16e7912a0b0404d364",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCSaTw/Ev5hUCt0\nR4YLHcfxxOb4FOMUbJdKZGl5gIzGlsf02jcw5E0yFqqEclJ1z7E1DCrqOlF8rCiE\nzDTY54fKIaydUwreff1Q+YNwFLWZDYYbseSUY6YY0bGp6tYvfp08gHLhR+YR5k0B\ntTG5x62/Wbn3F2EjChWsK6j+fUyMuCCRCTYTiiRunyqiD8aYXzHwbCax8ob+qKqZ\n9T8MFqXWQIsiqf07TkWoj92oX5hGo26kTYNreKlvFNspYyCMyat1CbaJgFAbAwqP\nL7NjSyI7yO25rw/g8tXG8INunCgJyeMxegDhWYPr89hYREgiftUQjyC6OEjZe5eO\nSW3raaWbAgMBAAECggEAIDxeYO7QJmHt52C2ES2B7+fwCLAknUMZfm4kUPWuSS06\nol0HaNLjckNOUPIQ2NKdTDY9Hqwvc9k95JtHiXhUy/rlFBCMJJet1g3R1DQjFatG\nG0PsNYXJNM66pNRJS1S/zunjIVngvJEt5FHePG7MAQUC7nXt07atNea5AytYVuUA\nLWxHQK8OJ0Q2gweQsTqZLwpi6wMipvpe8mRZwoQvlvvL1GY/6J/4nCpsgMkMQgNU\n/HOGSiaZzCptPcJAae+UwEp14fxGNaQXCdJvb8ygM/oT7KKXXeE+2pQ8mx2BUBaJ\n4xqhIIPubACAf2BRVeY0/mDG3h91RrSR34EuF6Fv+QKBgQDIQ7n5KdIZJ0ZZQBgc\nQBImI4aN5oLnZr3+1M569rKI0qo8wt2GZUlQDp5BPwHJubyORSCGirqrpRvRD0X5\nUav1U2ZRTo9v4o4t1ZB9+l5rQZNCa71yCZkZTb8RNbxOAYGwYDKQ7eRhptne9QQ0\n0m8qYUCdkgfD/1TddUlYjbSS6QKBgQC7KJpw1Xz8V/SOXnZPBkk5cBBGTH7BAeUM\nW9L6tjfWdA1WNB4s/5b1VTH0xyfWLZonVR28Gc812N8jfJjBNuA+MVXu6eCl2kwi\nMXc7i1L+e37PWe2JN6GcirzhtkKQ+LLlWxpjQSMraG9UBZ+Hirj1F0IAETw2XHS5\ny3Oa5nm54wKBgH31Ow9gImj3ruOL0J5UHhYm2gZ+KW9py65wIr5sU7aC6df1qGdT\nZV0ZFKhs/K7oR5QkHmUA9I/o9Sn0tUou+D0BC6WwB7+Te2GQpaTWyHQldn2cTjdf\nmg+0OqyUY6+cevl4R9WoCrDwxK/a455ljM3XBVEV/BRmj/YKQuuTlTOhAoGASoYw\neR2JVzHuv4H9uhnWrnhhAp0TG+eVPQaTTCGiulIbvWejXGepxKbX7ZAf3Ljr2R2b\naXsdd2OT9p12dflT8W/Tt/6I5YG3LyZjQ+KGea7TH92/KBRu1daov3fDqdZd5dYQ\n+9TEHFTJf7t9eotSesV4Em7Kexr1n8XTkqqTbeECgYBFWMUoHjXkiCMFWKwQmhd4\nJiNAIaHph0GuhrpVg2O6fTglqp7sLvkJg1rkz9WGqPtIZG/Ka9ZbDB4bxbcnmzZE\nhcp4op034hDw9888CQh9guABPuUeiNPJfimhh+shPIRFD57/+hIS8CCEKFhL7XCz\nRHKbLpmVpfKWmrf2fpYypA==\n-----END PRIVATE KEY-----\n",
+  "client_email": "docker-pipeline-dtc@dtc-de-course-484508.iam.gserviceaccount.com",
+  "client_id": "116795616164971442269",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/docker-pipeline-dtc%40dtc-de-course-484508.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

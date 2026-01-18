@@ -1,107 +1,134 @@
-# 01_docker_terraform_homework
+#!/bin/bash
+# Homework 1: Docker, SQL and Terraform
+# Data Engineering Zoomcamp 2026
+# Due date: 27 January 2026
 
-python3 -m venv .venv --upgrade-deps
+echo "---------------------------"
+echo "Question 1: What's the version of pip in the python:3.13 image?"
+echo "---------------------------"
 
-source .venv/bin/activate
+# Pull and run python:3.13 image and check versions
+docker run -it --rm --entrypoint bash python:3.13 -c "
+python --version
+pip --version
+"
 
-pip install uv
+# Answer
+echo "Answer 1: 25.3"
+echo
 
-uv init --python=3.13
+echo "---------------------------"
+echo "Question 2: Hostname and port pgAdmin should use to connect to Postgres"
+echo "---------------------------"
 
-uv add pandas pyarrow
+echo "Explanation: Inside Docker Compose, use the service name 'db' and internal port 5432"
+echo "Answer 2: db:5432"
+echo
 
-uv add --dev jupyter
+echo "---------------------------"
+echo "Question 3: Number of trips in November 2025 with trip_distance <= 1 mile"
+echo "---------------------------"
 
-uv run jupyter notebook
+# SQL query to count trips
+echo "SQL:"
+echo \"\"\"
+SELECT COUNT(1)
+FROM green_tripdata_nov
+WHERE lpep_pickup_datetime >= '2025-11-01'
+  AND lpep_pickup_datetime < '2025-12-01'
+  AND trip_distance <= 1;
+\"\"\"
 
-pip install sqlalchemy  
+# Answer
+echo "Answer 3: 8,007"
+echo
 
-uv add sqlalchemy psycopg2-binary
+echo "---------------------------"
+echo "Question 4: Pickup day with longest trip distance (<100 miles)"
+echo "---------------------------"
 
-uv lock
+# SQL query to find longest trip day
+echo "SQL:"
+echo \"\"\"
+SELECT 
+    lpep_pickup_datetime::date AS pickup_day,
+    MAX(trip_distance) AS max_trip_distance
+FROM green_tripdata_nov
+GROUP BY 1
+HAVING MAX(trip_distance) <= 100
+ORDER BY 2 DESC;
+\"\"\"
 
+# Answer
+echo "Answer 4: 2025-11-14"
+echo
 
-###before you run the jupyter notebook you make the docker compose to initiate the connection
-docker-compose up
+echo "---------------------------"
+echo "Question 5: Pickup zone with largest total_amount on 2025-11-18"
+echo "---------------------------"
 
-## we continue running the notebook
+# SQL query
+echo "SQL:"
+echo \"\"\"
+SELECT 
+    b.\"Zone\" AS pickup_zone,
+    SUM(total_amount) AS total_sum
+FROM green_tripdata_nov a
+LEFT JOIN zones b
+    ON a.\"PULocationID\" = b.\"LocationID\"
+WHERE lpep_pickup_datetime::date = '2025-11-18'
+GROUP BY 1
+ORDER BY 2 DESC;
+\"\"\"
 
-## after we are done and we see it works we transform the ipynb to .py
-uv run jupyter nbconvert --to=script notebook.ipynb
-mv notebook.py ingest_data.py
+# Answer
+echo "Answer 5: East Harlem North"
+echo
 
-#Click Integration
+echo "---------------------------"
+echo "Question 6: For pickups in 'East Harlem North', drop-off zone with largest tip"
+echo "---------------------------"
 
+# SQL query
+echo "SQL:"
+echo \"\"\"
+SELECT 
+    c.\"Zone\" AS drop_off_zone,
+    MAX(tip_amount) AS max_tip
+FROM green_tripdata_nov a
+LEFT JOIN zones b
+    ON a.\"PULocationID\" = b.\"LocationID\"
+LEFT JOIN zones c
+    ON a.\"DOLocationID\" = c.\"LocationID\"
+WHERE b.\"Zone\" = 'East Harlem North'
+  AND lpep_pickup_datetime::date BETWEEN '2025-11-01' AND '2025-11-30'
+GROUP BY 1
+ORDER BY 2 DESC;
+\"\"\"
 
-# creating the dockerfile
-Dockerfile → builds a Python image with all dependencies + your code
+# Answer
+echo "Answer 6: Yorkville West"
+echo
 
+echo "---------------------------"
+echo "Question 7: Terraform workflow"
+echo "---------------------------"
 
+echo "Correct sequence:"
+echo "1) terraform init"
+echo "2) terraform apply -auto-approve"
+echo "3) terraform destroy"
 
-docker-compose.yml → can include Postgres + your pipeline container
-✅ You do docker build her
+echo "Answer 7: terraform init, terraform apply -auto-approve, terraform destroy"
+echo
 
-docker-compose up
-When you run docker-compose up, Docker Compose automatically creates a default network for your project. The name of the network is built like this
-<directory_name>_default
-in this case pipeline_default
-docker network ls
-You'll see something like:
-NETWORK ID     NAME               DRIVER    SCOPE
-abcd1234       pipeline_default   bridge    local
-
-What you need to do first
-
-MAKE SURE ALL YOUR PACKAGES ARE IN YOUR TOML OTHERWISE YOU WILL NEED TO REBUILD YOUR IMAGE
-
-1️⃣ Build the image locally from your Dockerfile:
-
-docker build -t taxi_ingest:v001 .
-
-
-Make sure you are in the same directory as your Dockerfile (pipeline/)
-
-docker build -t taxi_ingest:v001 . → tags the image so you can reference it with docker run
-
-2️⃣ Run it in the Compose network:
-
-docker run -it \
-  --network=pipeline_default \
-  taxi_ingest:v001 \
-    --pg-user=root \
-    --pg-pass=root \
-    --pg-host=pgdatabase \
-    --pg-port=5432 \
-    --pg-db=ny_taxi \
-    --target-table=yellow_taxi_trips_2021_2 \
-    --year=2021 \
-    --month=2 \
-    --chunksize=100000
-
-
-
-✅ Now Docker will use the image you just built and can connect to the Postgres container in the network.
-
-login in pg admin through: http://localhost:8085/login
-Open browser and go to http://localhost:8085
-Login with email: admin@admin.com, password: root
-Right-click "Servers" → Register → Server
-Configure:
-General tab: Name: Local Docker
-Connection tab:
-Host: pgdatabase (the container name)
-Port: 5432
-Username: root
-Password: root
-Save
-
-Open the Query Tool
-
-In pgAdmin, expand the Servers → pgdatabase → Databases → ny_taxi → Schemas → public → Tables.
-
-Right-click on Tables (or a specific table like yellow_taxi_trips_2021_2).
-
-Choose Query Tool.
-
-This opens a SQL editor where you can type queries
-
+echo "---------------------------"
+echo "Summary of Answers"
+echo "---------------------------"
+echo "1: 25.3"
+echo "2: db:5432"
+echo "3: 8,007"
+echo "4: 2025-11-14"
+echo "5: East Harlem North"
+echo "6: Yorkville West"
+echo "7: terraform init, terraform apply -auto-approve, terraform destroy"
