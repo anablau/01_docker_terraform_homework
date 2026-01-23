@@ -1,0 +1,8 @@
+# Ignore real service account keys
+service-key.json
+*.json
+
+# Ignore any local Terraform state
+*.tfstate
+*.tfstate.backup
+.terraform/
