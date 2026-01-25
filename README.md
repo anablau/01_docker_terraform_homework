@@ -5,15 +5,6 @@ Homework 1: Docker, SQL and Terraform
 
 ---
 
-Some basic Git commands are:
-```
-git status
-git add
-git commit
-```
-
-
-
 ## Question 1: What's the version of pip in the python:3.13 image?  
 
 
