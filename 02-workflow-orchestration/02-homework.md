@@ -32,8 +32,8 @@ Process: 1. Executed a Backfill in Kestra for the yellow taxi type covering the 
 **SQL Query:** 
 ```
 SELECT count(*) 
-FROM public.yellow_tripdata 
-WHERE filename LIKE 'yellow_tripdata_2020%;
+FROM `dtc-de-course-484508.zoomcamp.yellow_tripdata` 
+WHERE filename LIKE 'yellow_tripdata_2020%';
 ```
 **Answer:24,648,499**
 
@@ -46,8 +46,8 @@ Performed a Backfill in Kestra for the green taxi type for the entire year of 20
 **SQL Query:**  
 ```
 SELECT count(*) 
-FROM public.green_tripdata 
-WHERE filename LIKE 'green_tripdata_2020%;
+FROM `dtc-de-course-484508.zoomcamp.green_tripdata` 
+WHERE filename LIKE 'green_tripdata_2020%';
 ```
 
 **Answer:1,734,051**
@@ -60,7 +60,7 @@ Executed the Kestra flow manually via backfill for taxi: yellow, year: 2021, and
 **SQL Query:**  
 ```
 SELECT count(*) 
-FROM public.yellow_tripdata 
+FROM `dtc-de-course-484508.zoomcamp.yellow_tripdata` 
 WHERE filename = 'yellow_tripdata_2021-03.csv';
 ```
 
