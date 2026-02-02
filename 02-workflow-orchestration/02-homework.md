@@ -9,6 +9,7 @@
 The upload_to_gcs logs, the raw byte count was 134,481,400 bytes. When you convert those bytes into binary Megabytes (MiB) by dividing by 1,024 twice (134,481,400 / 1024 / 1024), it equals exactly 128.25, which rounds to the course answer of 128.3 MiB. 
 
 **Answer: 128.3 MiB**  
+
 ---
 
 ## Question 2: What is the rendered value of the variable file when the inputs taxi is set to green, year is set to 2020, and month is set to 04 during execution?
