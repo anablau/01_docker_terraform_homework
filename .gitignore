@@ -1,2 +1,3 @@
 .terraform/
 *.tfstate*
+03-data-warehouse/*.json
