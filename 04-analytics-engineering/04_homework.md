@@ -21,14 +21,14 @@
 ## Question 3: Total Record Count
 
 - **Query:** `SELECT count(*) FROM prod.fct_monthly_zone_revenue`
-- **Result:** `12,998`
+- **Result:** `12,184`
 - **Note:** This may vary slightly based on specific dataset versions.
 
 ---
 
 ## Question 4: Best Performing Zone (2020)
 
-- **Highest Revenue Zone:** East Harlem South
+- **Highest Revenue Zone:** East Harlem North
 
 ```sql
 SELECT pickup_zone, SUM(revenue_monthly_total_amount) AS rev
@@ -44,7 +44,7 @@ LIMIT 1;
 
 ## Question 5: October 2019 Green Taxi Trips
 
-- **Total Trips:** `421,509`
+- **Total Trips:** `384,624`
 
 ```sql
 SELECT SUM(total_monthly_trips)
